@@ -1,10 +1,10 @@
 import React,{ useState } from 'react';
 import './App.css';
-import About from './Components/About';
+// import About from './Components/About';
 import Alert from './Components/Alert';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
-import {BrowserRouter as Router,Routes ,Route,Link} from 'react-router-dom';
+// import {BrowserRouter as Router,Routes ,Route,Link} from 'react-router-dom';
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [Mode, setMode] = useState('light');
@@ -34,19 +34,25 @@ function App() {
   
   return (
     <>
-      <Router>
-        <Navbar title="TextUtils" aboutText="About Us" mode={Mode} toggleMode={toggleMode} />
+      
+        <Navbar title="TextUtils"  mode={Mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
-          <Routes>
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/" element={<TextForm showalert={showalert} heading="Enter Your Text here" mode={Mode} />} />
-          </Routes>
+         <TextForm showalert={showalert} heading="Enter Your Text here" mode={Mode} />
+          
         </div>
-      </Router>
+    
     </>
     
   );
 }
 
 export default App;
+// eslint-disable-next-line no-lone-blocks
+{/* <div className="container my-3">
+          <Routes>
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/" element={<TextForm showalert={showalert} heading="Enter Your Text here" mode={Mode} />} />
+          </Routes>
+        </div>
+      </Router> */}
